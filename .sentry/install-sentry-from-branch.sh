@@ -44,7 +44,6 @@ PACKAGES_DIR="$REPO_DIR/packages"
 ESCAPED_PACKAGES_DIR=$(echo $PACKAGES_DIR | sed s/'\/'/'\\\/'/g)
 
 PACKAGE_NAMES=$(ls $PACKAGES_DIR)
-echo "Packages found: $PACKAGE_NAMES"
 
 # Modify each package's package.json file by searching in it for sentry dependencies from the monorepo and, for each
 # sibling dependency found, replacing the version number with a file dependency pointing to the sibling itself (so
@@ -54,9 +53,7 @@ for package in ${PACKAGE_NAMES[@]}; do
   # Within a given package.json file, search for each of the other packages in turn, and if found, make the replacement
   for package_dep in ${PACKAGE_NAMES[@]}; do
     sed -Ei /"@sentry\/${package_dep}"/s/"[0-9]+\.[0-9]+\.[0-9]+"/"file:${ESCAPED_PACKAGES_DIR}\/${package_dep}"/ ${PACKAGES_DIR}/${package}/package.json
-    echo "New package.json:"
   done
-  cat ${PACKAGES_DIR}/${package}/package.json
 done
 
 cat packages/node/dist/client.js
