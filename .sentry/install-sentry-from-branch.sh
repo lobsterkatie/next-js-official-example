@@ -64,7 +64,7 @@ cd $PROJECT_DIR
 echo " "
 echo "PATCHING SENTRY.SERVER.CONFIG.JS AND SENTRY.CLIENT.CONFIG.JS"
 echo "Removing frame limit on stacktraces"
-echo "Tagging events with $(vercel) tag"
+echo "Tagging events with \`vercel\` tag"
 echo "Tagging events with SDK repo's most recent commit message"
 echo "Tagging events with test project repo's most recent commit message"
 
