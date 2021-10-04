@@ -56,8 +56,6 @@ for package in ${PACKAGE_NAMES[@]}; do
   done
 done
 
-cat packages/node/dist/client.js
-
 echo " "
 echo "MOVING BACK TO PROJECT DIRECTORY"
 cd $PROJECT_DIR
@@ -71,12 +69,12 @@ echo "Tagging events with \`vercel\` tag"
 echo "Tagging events with SDK repo's most recent commit message"
 echo "Tagging events with test project repo's most recent commit message"
 
-INFINITE_STACKTRACE_CODE="
-Error.stackTraceLimit = 3;
-  "
 # INFINITE_STACKTRACE_CODE="
-# Error.stackTraceLimit = Infinity;
+# Error.stackTraceLimit = 3;
 #   "
+INFINITE_STACKTRACE_CODE="
+Error.stackTraceLimit = Infinity;
+  "
 
 SDK_COMMIT_MESSAGE=$(cd sentry-javascript && git log --format="%C(auto)%s" | head -n 1)
 CONFIGURE_SCOPE_CODE="
