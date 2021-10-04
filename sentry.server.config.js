@@ -20,4 +20,5 @@ Sentry.init({
     // enable HTTP calls tracing
     new Sentry.Integrations.Http({ tracing: true }),
   ],
+  autoSessionTracking: false,
 });
