@@ -55,8 +55,8 @@ for package in ${PACKAGE_NAMES[@]}; do
   for package_dep in ${PACKAGE_NAMES[@]}; do
     sed -Ei /"@sentry\/${package_dep}"/s/"[0-9]+\.[0-9]+\.[0-9]+"/"file:${ESCAPED_PACKAGES_DIR}\/${package_dep}"/ ${PACKAGES_DIR}/${package}/package.json
     echo "New package.json:"
-    cat ${PACKAGES_DIR}/${package}/package.json
   done
+  cat ${PACKAGES_DIR}/${package}/package.json
 done
 
 cat packages/node/dist/client.js
