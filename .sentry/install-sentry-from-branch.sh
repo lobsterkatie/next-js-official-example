@@ -43,7 +43,7 @@ PACKAGES_DIR="$REPO_DIR/packages"
 # Escape all of the slashes in the path for use in sed
 ESCAPED_PACKAGES_DIR=$(echo $PACKAGES_DIR | sed s/'\/'/'\\\/'/g)
 
-PACKAGE_NAMES=$(ls PACKAGES_DIR)
+PACKAGE_NAMES=$(ls $PACKAGES_DIR)
 echo "Packages found: $PACKAGE_NAMES"
 
 # Modify each package's package.json file by searching in it for sentry dependencies from the monorepo and, for each
