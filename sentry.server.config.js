@@ -11,14 +11,14 @@ Sentry.init({
   // that it will also get attached to your source maps
   tracesSampleRate: 1,
   debug: true,
-  integrations: (defaults) => [
-    ...defaults.filter(
-      (integration) =>
-        // filter out Http so its options can be changed below (otherwise, first one wins)
-        integration.name !== "Console" && integration.name !== "Http"
-    ),
-    // enable HTTP calls tracing
-    new Sentry.Integrations.Http({ tracing: true }),
-  ],
-  autoSessionTracking: false,
+  // integrations: (defaults) => [
+  //   ...defaults.filter(
+  //     (integration) =>
+  //       // filter out Http so its options can be changed below (otherwise, first one wins)
+  //       integration.name !== "Console" && integration.name !== "Http"
+  //   ),
+  //   // enable HTTP calls tracing
+  //   new Sentry.Integrations.Http({ tracing: true }),
+  // ],
+  // autoSessionTracking: false,
 });
