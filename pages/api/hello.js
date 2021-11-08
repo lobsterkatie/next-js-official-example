@@ -1,0 +1,3 @@
+async function handler(req, res) {
+  res.status(200).json({ name: "Maisey Dog" });
+}
