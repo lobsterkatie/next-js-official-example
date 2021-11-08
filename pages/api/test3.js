@@ -12,4 +12,4 @@ async function handler(req, res) {
 }
 
 // export default withSentry(handler);
-export default handler;
+export default withSentry(handler);
