@@ -18,6 +18,7 @@ const SentryWebpackPluginOptions = {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
   dryRun: true,
+  silent: true,
 };
 
 // Make sure adding Sentry options is the last code to run before exporting, to
